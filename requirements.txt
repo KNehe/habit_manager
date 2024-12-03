@@ -1,0 +1,4 @@
+django-browser-reload-1.16.0
+django-crispy-forms==1.14.0
+crispy-bootstrap5==2024.10
+django==5.1.2

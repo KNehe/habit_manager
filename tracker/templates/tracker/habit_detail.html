@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h1>{{ habit.name }}</h1>
+    <p>Description: {{ habit.description }}</p>
+
+
+    <div class="mt-3">
+        <a href="{% url 'add_log' habit.pk %}" class="btn btn-success rounded-pill">Add log</a>
+        <a class="btn btn-warning rounded-pill" href="{% url 'edit_habit' habit.pk %}">Edit Habit</a>
+    </div>
+
+    <h2 class="mt-4">Logs</h2>
+    <ul class="list-group mt-3">
+        {% for log in logs %}
+            <li class="list-group-item">
+                {{ log.date }}
+                    - 
+                {% if log.status %}
+                    <a href="{% url 'status' pk=log.pk %}"
+                        class="text-decoration-none text-reset"
+                    >
+                        ✅ <small>Completed</small>
+                    </a>
+                {% else %}
+                        <a href="{% url 'status' pk=log.pk %}"
+                        class="text-decoration-none text-reset"
+                    >
+                        ⏳ <small>Pending</small>
+                    </a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <p class="text-muted">No logs yet. Start tracking your habit!</p>
+        {% endfor %}
+    </ul>
+
+    <a class="btn btn-secondary rounded-pill mt-4" href="{% url 'habit_list' %}">Back to Habit List</a>
+</div>
+
+{% endblock %}

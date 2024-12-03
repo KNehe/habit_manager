@@ -1,5 +1,6 @@
 ## Habit Manager
-- A project to teach Django purpose on Youtube
+- Learn Django by building a habit tracker
+- [Watch the video on youtube](https://youtu.be/VfaYNhzWJ5w)
 
 ## Getting started
 - Clone this repository
